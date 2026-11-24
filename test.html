@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>GLB 테스트</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets timeout="60000">
+        <a-asset-item id="my-model" src="model.glb"></a-asset-item>
+      </a-assets>
+
+      <!-- 흰 배경 -->
+      <a-sky color="#ffffff"></a-sky>
+
+      <!-- 조명 -->
+      <a-entity light="type: ambient; intensity: 2"></a-entity>
+      <a-entity light="type: directional; intensity: 2" position="1 2 1"></a-entity>
+
+      <!-- 비교용 빨간 공 (기준점) -->
+      <a-sphere position="0 1.6 -3" radius="0.3" color="red"></a-sphere>
+
+      <!-- scale 0.1로 모델을 카메라 바로 앞에 -->
+      <a-gltf-model src="#my-model" position="1 1.6 -3" scale="0.1 0.1 0.1"></a-gltf-model>
+
+      <!-- scale 0.01 -->
+      <a-gltf-model src="#my-model" position="2 1.6 -3" scale="0.01 0.01 0.01"></a-gltf-model>
+
+      <!-- scale 1 -->
+      <a-gltf-model src="#my-model" position="-1 1.6 -3" scale="1 1 1"></a-gltf-model>
+
+      <a-camera position="0 1.6 0"></a-camera>
+    </a-scene>
+  </body>
+</html>
